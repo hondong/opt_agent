@@ -10,12 +10,6 @@ if MY_HF_HUB_TOKEN:
 else:
     login()
 
-from phoenix.otel import register
-from openinference.instrumentation.smolagents import SmolagentsInstrumentor
-
-register()
-SmolagentsInstrumentor().instrument()
-
 my_inference_model = InferenceClientModel(
     # model_id="deepseek-ai/DeepSeek-V3.2",
     # model_id="deepseek-ai/deepseek-coder-33b-instruct",
