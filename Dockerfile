@@ -14,10 +14,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Download the correct SCIP binary based on the architecture
 ARG TARGETARCH
 RUN if [ "$TARGETARCH" = "arm64" ]; then \
-        # wget https://scipopt.org/download/release/scipoptsuite-10.0.0-glibc2_28-aarch64.tgz -O scip.tgz; \
         wget https://scipopt.org/download/release/scipoptsuite_10.0.0-1+trixie_aarch64.deb -O scip.deb; \
     else \
-        echo "CPU architecture not supported"; \
+        echo "CPU architecture not yet supported"; \
         exit 1; \
     fi
 
@@ -25,15 +24,11 @@ RUN if [ "$TARGETARCH" = "arm64" ]; then \
 # 2. Install SCIP
 RUN dpkg -X scip.deb /usr/local/ && mv /usr/local/usr /usr/local/scip && rm scip.deb
 
-# 3. CRITICAL: Point PySCIPOpt to the SCIP installation
-ENV SCIPOPTDIR=/usr/local/
+# # 3. CRITICAL: Point PySCIPOpt to the SCIP installation
+ENV SCIPOPTDIR=/usr/local/scip
 
-# # 4. Now install the Python wrapper
+# # # 4. Now install the Python wrapper
 RUN pip install --no-cache-dir pyscipopt
-
-# Setup an app user so the container doesn't run as the root user
-# RUN useradd opt_agent_user
-# USER opt_agent_user
 
 # Set the working directory
 WORKDIR /home/opt_agent
@@ -45,6 +40,3 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # # # Copy the rest of your code
 COPY . .
-
-# # # (Optional) If your agent runs a service or script
-CMD ["python3", "src/run.py"]

@@ -532,7 +532,7 @@ class CarProductionSupplyChainModel:
 
     def _get_bom(self) -> Dict[str, Dict[str, int]]:
         # Load Bill of Materials from CSV file
-        bom_df = pd.read_csv(f'{self.data_path}/bom.csv')
+        bom_df = pd.read_csv(f'{self.data_path}/BOM.csv')
         bom: Dict[str, Dict[str, int]] = {}
         for _, row in bom_df.iterrows():
             product_str = str(row['mother'])
