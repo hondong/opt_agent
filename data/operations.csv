@@ -1,0 +1,16 @@
+node_n,input_product_group_x,output_product_group_y,input_quantity_in_nxy,output_quantity_out_nxy,alpha_nxy,beta_nxy
+zp7,engine,car,1,1,0,1
+zp7,gear,car,1,1,0,1
+zp7,battery,car,1,1,0,1
+zp7,seat,car,1,1,0,1
+zp8,car,car,1,1,0,0
+engine-inv,engine,engine,1,1,0,1
+gear-inv,gear,gear,1,1,0,1
+battery-inv,battery,battery,1,1,0,1
+seat-inv,seat,seat,1,1,0,1
+engine-prod,engine,engine,1,1,0,1
+gear-prod,gear,gear,1,1,0,1
+seat-prod,seat-component,seat,1,1,0,1
+battery-prod,battery-component,battery,20,1,0,1
+seat-trans,seat-component,seat-component,1,1,0,1
+battery-trans,battery-component,battery-component,1,1,0,1

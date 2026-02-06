@@ -1,0 +1,1 @@
+MY_HF_HUB_TOKEN = ""
