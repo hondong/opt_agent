@@ -3,9 +3,9 @@
 ## Context
 This repository is to accompany a live demo section in the [online workshop](https://www.linkedin.com/posts/dhanashreelele_informs-agentic-or-activity-7415998989789085697-C5qM?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAUML_wBTmSGC7gKrAQewVWlcBWN7Qj6rhI) AI agent masterclass on Jan 9, 2026. The entire presented deck of this workshop is available [here](https://docs.google.com/presentation/d/18JXI1UmiNE6NOqYasGkOSYvnRRuBnRv1EshTVcQOBfY/edit?usp=sharing). Code here covers the specific section (Slide 60-74) presented by [Hongbo Dong](https://www.linkedin.com/in/hongbo-dong-4a443b24/).
 
-Goal of this code repository is to illustrate one usecase where LLM models can be used to create an interpretation agent for facilitate users to interpret input/output and logic around an optimization model. It contains two parts:
+Goal of this code repository is to illustrate LLM models can be used to create an interpretation agent to facilitate the interpretation of input/output and logic around an optimization model. The code contains two parts:
 1. A supply chain optimization model described in this paper: [Optimisation model for multi-item multi-echelon supply chains with nested multi-level products](https://www.sciencedirect.com/science/article/pii/S0377221720306950). Quetschlich, Moetz & Otto, European Journal of Operations Research. 2020 with open [data set](https://data.mendeley.com/datasets/pr3sdy5vp3/1). The benefits of using this set-up is its non-trivial and close to realisitic problems to be solved in supply chain planning/management.
-2. A very simple CodeAgent (using [HuggingFace smolagents](https://huggingface.co/docs/smolagents/en/index) library) that can write code to analyze model input/outputs. The code agent here is very simple, no sophisticated implementation of agent memory or what so ever. This is only to serve the purpose of a gentle introduction of writing AI agents to users with Operations Research background.
+2. A simple CodeAgent (using [HuggingFace smolagents](https://huggingface.co/docs/smolagents/en/index) library) that can write code to analyze model input/outputs. This is only to serve the purpose of a gentle introduction of writing AI agents to users with Operations Research background, and has no sophisticated implementation of agent memory or what so ever (which might come in future versions of this repository).
 
 The idea of using LLM to resolve the bottleneck of human-model-interface is considered in recent research papers, such as:
 
@@ -14,7 +14,7 @@ The idea of using LLM to resolve the bottleneck of human-model-interface is cons
 
 ## Running the model and agent in Docker environment
 
-I created to automatically install all necessary packages in an isolated container. Following the steps to reproduce results presented in the live demo: (Current Dockerfile version works well for Mac OS X, for other systems, adjustments on Dockerfile will be needed to install `pyscipopt` properly)
+The code comes with Docker configurations to automatically install all necessary packages in an isolated container. Follow the steps to reproduce results presented in the live demo: (Current Dockerfile version works well for Mac OS X, for other systems, adjustments on Dockerfile may be needed to install `pyscipopt` properly.)
 
 1. Clone this repository. 
 ```bash
@@ -48,5 +48,5 @@ Depending on performance of machine, this step will take approximately 10 minute
 ```bash
 python3 src/opt_agent.py -m 'Compute the number of distinct cars needed in each period from the input demand data. Save the results in a csv file and report the csv filename.'
 ```
-Sample queries/prompts used in presentation is in the file `example_prompts.py`.
+Sample queries/prompts used in presentation are in the file `example_prompts.py`.
 
