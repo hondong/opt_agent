@@ -14,7 +14,7 @@ The idea of using LLM to resolve the bottleneck of human-model-interface is cons
 
 ## Running the model and agent in Docker environment
 
-I created to automatically install all necessary packages in an isolated container. Following the steps to reproduce results presented in the live demo:
+I created to automatically install all necessary packages in an isolated container. Following the steps to reproduce results presented in the live demo: (Current Dockerfile version works well for Mac OS X, for other systems, adjustments on Dockerfile will be needed to install `pyscipopt` properly)
 
 1. Clone this repository. 
 ```bash
