@@ -18,8 +18,8 @@ The code comes with Docker configurations to automatically install all necessary
 
 1. Clone this repository. 
 ```bash
-git clone https://github.com/hbdong/opt_agent_wip.git
-cd opt_agent_wip
+git clone https://github.com/hbdong/opt_agent.git
+cd opt_agent
 ```
 Then create a [HuggingFace account](https://huggingface.co/) if you have not yet already. Further create an user access token. Replace the only line in `my_secrets.py` from
 ```
